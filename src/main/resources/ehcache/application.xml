@@ -12,13 +12,17 @@
 	http://www.springframework.org/schema/context  
 	http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:component-scan base-package="com.smzh" />
+
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
 		<property name="configLocation" value="classpath:ehcache/ehcache.xml" />
+		<property name="shared" value="true" />
 	</bean>
 
 	<bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
 		<property name="cacheManager" ref="cacheManager" />
 	</bean>
+	<!-- 添加缓存监听 -->
+	<bean id="simpleListener" class="com.smzh.ehcache.SimpleListener"></bean>
 
 
 </beans>
