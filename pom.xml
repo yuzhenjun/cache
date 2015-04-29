@@ -16,6 +16,7 @@
 		<tomcat6-version>2.1</tomcat6-version>
 		<spring-version>4.1.6.RELEASE</spring-version>
 		<ehcache-version>2.6.9</ehcache-version>
+		<redis-version>2.1.0</redis-version>
 	</properties>
 
 	<dependencies>
@@ -62,11 +63,27 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring-version}</version>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring-version}</version>
 			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${redis-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${redis-version}</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.4.1.RELEASE</version>
 		</dependency>
 	</dependencies>
 
