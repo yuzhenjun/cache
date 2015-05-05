@@ -85,6 +85,28 @@
 			<artifactId>spring-data-redis</artifactId>
 			<version>1.4.1.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>net.floatingsun</groupId>
+			<artifactId>jetcd</artifactId>
+			<version>0.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.floatingsun</groupId>
+			<artifactId>jetcd</artifactId>
+			<version>0.3.1</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.github.mlaccetti</groupId>
+			<artifactId>etcd-client</artifactId>
+			<version>0.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.mlaccetti</groupId>
+			<artifactId>etcd-client</artifactId>
+			<version>0.1.2</version>
+			<classifier>sources</classifier>
+		</dependency>
 	</dependencies>
 
 	<build>
