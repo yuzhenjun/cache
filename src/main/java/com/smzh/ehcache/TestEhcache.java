@@ -30,6 +30,10 @@ public class TestEhcache {
 	            cache.put(e);
 	        }
 
+	       
+	       
+	       
+	       
 	        List<String> keys = cache.getKeys();
 	        for (String key : keys) {
 	            System.out.println(key + "," + cache.get(key));
