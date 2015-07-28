@@ -143,7 +143,7 @@ public class RedisClient {
      }
 
      private void SetOperate() {
-      
+      jedis.get(new byte[]{});
      }
 
      private void SortedSetOperate() {

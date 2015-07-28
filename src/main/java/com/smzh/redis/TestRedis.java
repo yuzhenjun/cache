@@ -7,6 +7,9 @@
  */
 package com.smzh.redis;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author zhenjun.yu
 
@@ -19,6 +22,9 @@ public class TestRedis {
 	public static void main(String[] args) {
 		RedisClient client=new RedisClient();
 		client.show();
+		List<String> list=new ArrayList<>();
+		
+		
 	}
 
 }

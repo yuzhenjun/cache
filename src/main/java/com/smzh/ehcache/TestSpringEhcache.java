@@ -8,7 +8,6 @@
 package com.smzh.ehcache;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import net.sf.ehcache.Cache;
@@ -26,8 +25,9 @@ public class TestSpringEhcache {
 
 	/**
 	 * @param args
+	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 			@SuppressWarnings("resource")
 			ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:ehcache/application.xml");
 			EhCacheCacheManager ehCacheManager= (EhCacheCacheManager) context.getBean("ehCacheManager");
@@ -37,26 +37,36 @@ public class TestSpringEhcache {
 			    System.out.println("name="+cacheName);
 			}
 			
-			//System.out.println("配置文件:=================\n"+cacheManager.getActiveConfigurationText());
-			//System.out.println(cacheManager.getName());
 			Cache cache=cacheManager.getCache("simple");
+			for(Object key:cache.getKeys()){
+				System.out.println(cache.get(key).getObjectValue());
+			}
 			Element element1 = new Element("key", "val");
 			cache.put(element1);
 			Element element2 = new Element("key2", "val2");
 			cache.put(element2);
-			cache.evictExpiredElements();
 			Map<String, String> map=new HashMap<String, String>();
 			map.put("name", "jun");
 			Element element3 = new Element("MAP",map);
 			cache.put(element3);
-			for(Object key:cache.getKeys()){
-				System.out.println(key);
-				System.out.println("========="+cache.get(key)+"=========");
-				System.out.println(cache.remove(key));
+			
+			System.out.println("======================"+System.currentTimeMillis()+"=======================");
+			
+			Thread.sleep(10000);
+			
+			cache.get("key");
+			
+			Thread.sleep(10000);
+			
+			System.out.println("======================"+System.currentTimeMillis()+"=======================");
+			for( Object key:cache.getKeys()){
+				Element element=cache.get(key);
+				if(element!=null){
+						System.err.println("======最后访问时间======"+element.getLastAccessTime()+"============");
+						
+					}
 			}
-			System.out.println("=============================================");
-			
-			
+			cacheManager.shutdown();
 			
 			
 	}

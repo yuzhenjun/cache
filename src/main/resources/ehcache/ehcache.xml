@@ -31,10 +31,12 @@
     <cache name="simple" 
         maxElementsInMemory="10000" 
         eternal="false"
-        overflowToDisk="false" 
-        timeToIdleSeconds="800" 
+        timeToIdleSeconds="604800" 
         timeToLiveSeconds="0"
-        memoryStoreEvictionPolicy="LRU" >
+        memoryStoreEvictionPolicy="LRU" 
+        overflowToDisk="true"
+        diskPersistent="true"
+        >
         <cacheEventListenerFactory class="com.smzh.ehcache.CacheEventListenerFactory" properties="bean=simpleListener"/> 
         </cache>
 </ehcache>
